@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Good Morning{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+    <img src="static/logo.jpg" />
+</head>
+<body>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+    <h1>{{ weather.day }}</h1>
+    <h1>Happy nameday to: </h1>
+        <h1>{{ nameday.nameday }}</h1>
+    <h1>Current Weather in:</h1>
+
+    <form method="post"> {% csrf_token %}
+      <input type="'text" placeholder="Enter cityname" name="city"/>
+      <button type="submit">Enter</button>
+    </form>
+
+    <h1>{{ weather.city }}</h1>
+    <h1>{{ weather.description }}</h1>
+    <h1>Temp: {{ weather.temp }} °C</h1>
+    <h1>Pressure: {{ weather.pressure }} hPa </h1>
+    <h1>Wind: {{ weather.wind }} km/h </h1>
+    <h1><img src='http://openweathermap.org/img/w/{{weather.icon}}.png' width="150px"/></h1>
+    <form method="get"> {% csrf_token %}
+
+    <h2>Kitty of the day </h2>
+    <h2><img src='{{kitty.pic}}' /></h2>
+
+        <h2>{{ kitty.fact }}</h2>
+    </form>
+    <h2>Random Chuck:</h2>
+    <h2>{{ chuck.chuck }}</h2>
+</body>
+</html>

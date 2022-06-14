@@ -1,0 +1,32 @@
+{% extends "base_reg.html" %}
+
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Available Services{% endblock %}
+
+</head>
+<body>
+{% block content %}
+<style>
+table, th, td {
+  border:2px solid black;
+  color: black;
+}
+</style>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+
+    </tr>
+    {% for service in data %}
+    <tr align="center">
+        <td> {{ service.name }} </td>
+        <td> {{ service.description }} </td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</body>
+</html>
